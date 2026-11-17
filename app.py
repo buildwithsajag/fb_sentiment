@@ -246,9 +246,13 @@ def analyze_post_comments(post_text: str, comments: list[str]) -> PostReviewAnal
             {
                 "role": "system",
                 "content": (
-                    "Analyze the Facebook comments on this post. Classify each comment as "
-                    "Positive, Negative, or Neutral, determine the overall review sentiment "
-                    "(Positive, Negative, or Mixed), and write a concise 1-2 sentence summary."
+                    "Analyze the Facebook comments on this post. Comments may be written in English, "
+                    "Nepali (Devanagari script, e.g., 'राम्रो छ', 'बकवास'), Romanized Nepali (Nepali written "
+                    "using English letters, e.g., 'ramro cha', 'kasto hawa', 'babbal', 'jhyau'), or "
+                    "code-mixed Nepali-English. Understand local Nepali slang, tone, and sarcasm accurately. "
+                    "Keep the original comment text unchanged in the output, classify each comment strictly "
+                    "as 'Positive', 'Negative', or 'Neutral', determine the overall review sentiment "
+                    "('Positive', 'Negative', or 'Mixed'), and write a concise 1-2 sentence summary in English."
                 ),
             },
             {"role": "user", "content": prompt},
